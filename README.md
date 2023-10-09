@@ -47,11 +47,22 @@ Make sure you have downloaded these prerequisites before we start
      docker build -t django-app .
      docker run -d --network custom-network --ip 10.0.0.10 -p 8000:8000 --hostname django django-app
      ```
-  6. Run the Nginx container
-     ```
-     docker run -d --network custom-network --ip 10.0.0.5 -p 80:80 --hostname nginx nginx
-     ```
-     Now we need to go inside the container to configure nginx as reverse proxy
-     ```
-     docker exec -it <container id> bash
-     nano etc/nginx/conf.d/default.conf
+  6. Build the nginx image and run it
+       Now we need to build the nginx image that is configured as reverse proxy
+         ```
+         cd ~/my-project/nginx
+         docker build -t nginx-reverse-proxy .
+         ```
+       Then run the container :    
+         ```
+         docker run -d --network custom-network --ip 10.0.0.5 -p 80:80 --hostname nginx nginx-reverse-proxy
+         ```
+  7. Migrate tables to the new database
+       ```
+       docker exec -it <django container id> bash
+       cd ~/my-project/django/mysite
+       python3 manage.py runserver
+       ```
+       After you finish exit the container
+
+  8. Finally you can check the connectivity by going to your localhost or the ip which we gave to the nginx which is 10.0.0.5
