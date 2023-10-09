@@ -9,11 +9,13 @@ In this guide I'm going to build a Django web app but I'll use Mysql as database
 
 ### Prerequisites
 Make sure you have downloaded these prerequisites before we start 
-* [Docker] (https://docs.docker.com/get-docker/)
-* [Docker compose] (https://docs.docker.com/compose/install/)
+* [Docker](https://docs.docker.com/get-docker/)
+* [Docker compose](https://docs.docker.com/compose/install/)
 
-  ### How to build
+
+### How to build
   1. First of all we will make a new directory where all the files would live.
+
      ```
      mkdir my-project
      cd my-project
