@@ -54,7 +54,7 @@ Make sure you have downloaded these prerequisites before we start
        We need to build the nginx image that is configured as reverse proxy  
            ```
            cd ~/my-project/nginx  
-           docker build -t nginx-reverse-proxy .
+     docker build -t nginx-reverse-proxy .
            ```
       
        Then run the container :      
