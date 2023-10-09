@@ -47,8 +47,9 @@ Make sure you have downloaded these prerequisites before we start
      docker build -t django-app .
      docker run -d --network custom-network --ip 10.0.0.10 -p 8000:8000 --hostname django django-app
      ```
-  6. Build the nginx image and run it  
-       Now we need to build the nginx image that is configured as reverse proxy  
+  6. Build the nginx image and run it
+     
+       We need to build the nginx image that is configured as reverse proxy  
            ```
            cd ~/my-project/nginx
            docker build -t nginx-reverse-proxy .
@@ -67,4 +68,11 @@ Make sure you have downloaded these prerequisites before we start
        ```
        After you finish exit the container
 
-  9. Finally you can check the connectivity by going to your localhost or the ip which we gave to the nginx which is 10.0.0.5
+  9. Finally you can check the connectivity by going to the ip which we gave to the nginx which is 10.0.0.5 or the server name which is in my case www.jodeh.com
+
+<hr>
+
+### Configuration
+  * We can configure django settings by editting ./django/mysite/settings.py file
+  * The proxy pass and the server name can be configured by editting ./etc/nginx/conf.d/default.conf file
+
