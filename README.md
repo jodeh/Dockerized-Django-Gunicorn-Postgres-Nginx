@@ -68,7 +68,7 @@ Make sure you have downloaded these prerequisites before we start
        ```
        After you finish exit the container
 
-  9. Finally you can check the connectivity by going to the ip which we gave to the nginx which is 10.0.0.5 or the server name which is in my case www.jodeh.com
+  9. Finally you can check the connectivity by going to the ip which we gave to the nginx which is 10.0.0.5 or the server name.
 
 <hr>
 
