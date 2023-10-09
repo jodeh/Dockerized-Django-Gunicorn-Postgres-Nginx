@@ -5,10 +5,10 @@
 In this guide I'm going to build a Django web app but I'll use Mysql as database instead of the default database mysql lite 3 , as well as I'm going to setup Nginx as reverse proxy.
 <hr>
 
-### Table of Contents
-### Prerequisites
-### How to build
-### Configuration
+## Table of Contents
+* ### Prerequisites
+* ### How to build
+* ### Configuration
 <hr>
 
 ### Prerequisites
