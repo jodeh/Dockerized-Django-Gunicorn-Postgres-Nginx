@@ -35,7 +35,16 @@ Make sure you have downloaded these prerequisites before we start
   4. Now lets run our mysql container :
 
      ```
-     docker run -d --network custom-network --ip 10.0.0.15 -v ./mysql/vol:/etc/mysql/conf.d --hostname mysql-database -e MYSQL_ROOT_PASSWORD=password -e MYSQL_USER=jodeh -e MYSQL_PASSWORD=password mysql
+     docker run -d --network custom-network --ip 10.0.0.15 -v ./mysql/vol:/etc/mysql/conf.d --hostname mysql-database -e MYSQL_ROOT_PASSWORD=password -e MYSQL_USER=jodeh -e MYSQL_PASSWORD=password -e     
+     MYSQL_DATABASE=djangodb mysql
      ```
-     As you can see, we ran mysql container and connected it to custom network and made a user called jodeh , you can change it to whatever you want , the same thing to the passwords .
-      we made a volume in case we accedintly deleted our container , the data will stay saved in our path
+     As you can see, we ran mysql container and connected it to custom network and made a user called jodeh , you can change it to whatever you want , the same thing to the database name and passwords .
+      and we made a volume in case we accedintly deleted our container , the data will stay saved in our path
+     ```
+  5. Build the Django image and run the container
+     ```
+     cd django
+     docker build -t django-app .
+     docker run -d --network custom-network --ip 10.0.0.10 -p 8000:8000 --hostname django django-app
+     ```
+  6. Run the Nginx container
