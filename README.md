@@ -6,9 +6,9 @@ In this guide I'm going to build a Django web app but I'll use Mysql as database
 <hr>
 
 ### Table of Contents
-* Prerequisites
-* How to build
-* Configuration
+### Prerequisites
+### How to build
+### Configuration
 <hr>
 
 ### Prerequisites
