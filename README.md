@@ -40,7 +40,7 @@ Make sure you have downloaded these prerequisites before we start
      ```
      As you can see, we ran mysql container and connected it to custom network and made a user called jodeh , you can change it to whatever you want , the same thing to the database name and passwords .
       and we made a volume in case we accedintly deleted our container , the data will stay saved in our path
-     ```
+
   5. Build the Django image and run the container
      ```
      cd django
@@ -48,3 +48,10 @@ Make sure you have downloaded these prerequisites before we start
      docker run -d --network custom-network --ip 10.0.0.10 -p 8000:8000 --hostname django django-app
      ```
   6. Run the Nginx container
+     ```
+     docker run -d --network custom-network --ip 10.0.0.5 -p 80:80 --hostname nginx nginx
+     ```
+     Now we need to go inside the container to configure nginx as reverse proxy
+     ```
+     docker exec -it <container id> bash
+     nano etc/nginx/conf.d/default.conf
