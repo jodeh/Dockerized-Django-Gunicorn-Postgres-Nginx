@@ -49,14 +49,15 @@ Make sure you have downloaded these prerequisites before we start
      ```
   6. Build the nginx image and run it  
        Now we need to build the nginx image that is configured as reverse proxy  
-         ```
-         cd ~/my-project/nginx
-         docker build -t nginx-reverse-proxy .
-         ```  
+           ```
+           cd ~/my-project/nginx
+           docker build -t nginx-reverse-proxy .
+           ```
+      
        Then run the container :      
-         ```
-         docker run -d --network custom-network --ip 10.0.0.5 -p 80:80 --hostname nginx nginx-reverse-proxy  
-         ```
+           ```
+           docker run -d --network custom-network --ip 10.0.0.5 -p 80:80 --hostname nginx nginx-reverse-proxy  
+           ```
      
   8. Migrate tables to the new database
        ```
