@@ -2,7 +2,6 @@
 
 ![Dockerize-01](https://github.com/jodeh/Dockerized-Django-Nginx-MYSQL/assets/80529706/028acd0c-95be-4a68-8b1a-9550db43c9ef)
 
-In this guide I'm going to build a Django web app but I'll use Mysql as database instead of the default database mysql lite 3 , as well as I'm going to setup Nginx as reverse proxy.
 <hr>
 
 ## Table of Contents
