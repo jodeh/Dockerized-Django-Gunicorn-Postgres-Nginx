@@ -1,4 +1,4 @@
-# Dockerized Django, MySQL as Database, and Nginx Setup as reverse proxy
+# Demo Django Application with MYSQL and Nginx Reverse Proxy.
 
 ![Dockerize-01](https://github.com/jodeh/Dockerized-Django-Nginx-MYSQL/assets/80529706/028acd0c-95be-4a68-8b1a-9550db43c9ef)
 
