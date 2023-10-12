@@ -54,12 +54,25 @@ Make sure you have downloaded these prerequisites before we start
   6. Migrate tables to the new database
        ```
        docker exec -it <django container id> bash
-       cd ~/Dockerized-Django-Nginx-MYSQL/django/mysite
-       python3 manage.py runserver
+       cd ~/mysite
+       python3 manage.py migrate
        ```
-       After you finish exit the container
-
-  7. Finally you can check the connectivity by going to the ip which we gave to the nginx which is 10.0.0.5 or the server name.
+     After you finish exit the container
+      ```
+      exit
+      ```
+  7. Now go to mysql container to check tables
+     ```
+     docker exec -it <mysql container id> bash
+     
+     $ mysql -p
+     > SHOW DATABASES;
+     > USE djangodb;
+     > SHOW TABLES;
+     ```
+   Tables must be shown.
+ 
+  9. Finally you can check the connectivity by going to the ip which we gave to the nginx which is 10.0.0.5 or the server name.
 
 <hr>
 
