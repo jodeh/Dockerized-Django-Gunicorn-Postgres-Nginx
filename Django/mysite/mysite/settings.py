@@ -80,7 +80,7 @@ DATABASES = {
         'NAME'    : 'djangodb',                 # <-- UPDATED line 
         'USER'    : 'jodeh',                     # <-- UPDATED line
         'PASSWORD': 'password',              # <-- UPDATED line
-        'HOST'    : '10.10.0.15',                # <-- UPDATED line
+        'HOST'    : '10.0.0.15',                # <-- UPDATED line
         'PORT'    : '3306',
     }
 }
