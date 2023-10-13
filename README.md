@@ -62,7 +62,7 @@ Make sure you have downloaded these prerequisites before we start
        cd ~/mysite
        python3 manage.py migrate
        ```
-  7. Now go to mysql container to check tables
+  7. Now go back to mysql container to check tables
      ```
      docker exec -it <mysql container id> bash
      
@@ -71,9 +71,9 @@ Make sure you have downloaded these prerequisites before we start
      > USE djangodb;
      > SHOW TABLES;
      ```
-   Tables must be shown like this.
+     Tables must be shown like this.
    
-   ![djangodb](https://github.com/jodeh/Dockerized-Django-Nginx-MYSQL/assets/80529706/e7de7bf2-4c24-4a4a-858a-48264800cbfd)
+     ![djangodb](https://github.com/jodeh/Dockerized-Django-Nginx-MYSQL/assets/80529706/e7de7bf2-4c24-4a4a-858a-48264800cbfd)
 
   9. Finally you can check the connectivity by going to the ip which we gave to the nginx which is 10.0.0.5 or the server name.
 
