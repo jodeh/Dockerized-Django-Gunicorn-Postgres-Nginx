@@ -32,34 +32,36 @@ Make sure you have downloaded these prerequisites before we start
   3. Now lets run our mysql container :
 
      ```
-     docker run -d --network custom-network --ip 10.0.0.15 -v ./mysql/vol:/etc/mysql/conf.d --hostname mysql-database -e MYSQL_ROOT_PASSWORD=password -e             MYSQL_USER=jodeh -e MYSQL_PASSWORD=password -e MYSQL_DATABASE=djangodb mysql
+     docker run -d --network custom-network --ip 10.0.0.15 --hostname mysql-database -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=djangodb mysql
      ```
-     As you can see, we ran mysql container and connected it to custom network and made a user called jodeh , you can change it to whatever you want , the same       thing to the database name and passwords .
-      and we made a volume in case we accedintly deleted our container , the data will stay saved in our path
 
   4. Build the Django image and run the container
      ```
-     cd ~/Dockerized-Django-Nginx-MYSQL/Django
+     cd /Django
      docker build -t django-app .
      docker run -d --network custom-network --ip 10.0.0.10 --hostname django django-app
      ```
   5. Build the nginx image and run it
        ```
-       cd ~/Dockerized-Django-Nginx-MYSQL/nginx
+       cd /nginx
        docker build -t nginx-reverse-proxy .
        docker run -d --network custom-network --ip 10.0.0.5 -p 80:80 --hostname nginx nginx-reverse-proxy  
         ```
      
-  6. Migrate tables to the new database
+  6. Create user in mysql .
+       ```
+       docker exec -it <mysql container id> bash
+       $ mysql -p
+       CREATE USER 'jodeh'@'%' IDENTIFIED BY 'password';
+       GRANT ALL PRIVILEGES ON *.* TO 'jodeh'@'%' WITH GRANT OPTION;
+       FLUSH PRIVILEGES;
+       ```
+ 7. Migrate tables to the new database
        ```
        docker exec -it <django container id> bash
        cd ~/mysite
        python3 manage.py migrate
        ```
-     After you finish exit the container
-      ```
-      exit
-      ```
   7. Now go to mysql container to check tables
      ```
      docker exec -it <mysql container id> bash
@@ -69,8 +71,10 @@ Make sure you have downloaded these prerequisites before we start
      > USE djangodb;
      > SHOW TABLES;
      ```
-   Tables must be shown.
- 
+   Tables must be shown like this.
+   
+   ![djangodb](https://github.com/jodeh/Dockerized-Django-Nginx-MYSQL/assets/80529706/e7de7bf2-4c24-4a4a-858a-48264800cbfd)
+
   9. Finally you can check the connectivity by going to the ip which we gave to the nginx which is 10.0.0.5 or the server name.
 
 <hr>
