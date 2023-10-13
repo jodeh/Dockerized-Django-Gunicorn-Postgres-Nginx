@@ -53,9 +53,9 @@ Make sure you have downloaded these prerequisites before we start
        docker exec -it <mysql container id> bash
        
        $ mysql -p
-       CREATE USER 'jodeh'@'%' IDENTIFIED BY 'password';
-       GRANT ALL PRIVILEGES ON *.* TO 'jodeh'@'%' WITH GRANT OPTION;
-       FLUSH PRIVILEGES;
+       > CREATE USER 'jodeh'@'%' IDENTIFIED BY 'password';
+       > GRANT ALL PRIVILEGES ON *.* TO 'jodeh'@'%' WITH GRANT OPTION;
+       > FLUSH PRIVILEGES;
        ```
  7. Migrate tables to the new database
        ```
