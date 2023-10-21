@@ -79,10 +79,9 @@ Make sure you have downloaded these prerequisites before we start
 <hr>
 
 ### Compose file
-I've attache docker compose file (docker-compose.yml) in the root directory, all you need is to run these commands:
+I've attache docker compose file (docker-compose.yml) in the root directory, all you need is to run theis command:
 ```
-docker-compose build
-docker-compose up -d
+docker-compose up -d --build
 ```
 When you to stop them
 ```
