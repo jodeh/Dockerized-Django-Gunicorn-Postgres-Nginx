@@ -74,16 +74,18 @@ Make sure you have downloaded these prerequisites before we start
      ![postgres tables](https://github.com/jodeh/Dockerized-Django-Nginx-MYSQL/assets/80529706/82e97787-435c-40dd-95d8-8718cc1f57dc)
 
 
-  9. Finally you can check the connectivity by going to the ip which we gave to the nginx which is 10.0.0.5 or the server name.
+  9. Finally Check The Connectivity
+      ![Django](https://github.com/jodeh/Dockerized-Django-Gunicorn-Postgres-Nginx/assets/80529706/a610ba37-1ff6-48f1-b057-405476c2d84c)
+
 
 <hr>
 
 ### Compose file
-I've attache docker compose file (docker-compose.yml) in the root directory, all you need is to run theis command:
+I've attached docker compose file (docker-compose.yml) in the root directory, all you need is to run this command:
 ```
 docker-compose up -d --build
 ```
-When you to stop the deployment
+When you want to stop the deployment
 ```
 docker-compose down
 ```
