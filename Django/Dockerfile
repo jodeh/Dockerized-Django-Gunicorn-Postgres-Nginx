@@ -1,19 +1,12 @@
-# Dockerfile
+FROM python:3
 
-# The first instruction is what image we want to base our container on
-# We Use an official Python runtime as a parent image
-FROM python:3.7
+RUN pip install --upgrade pip
 
-# Allows docker to cache installed dependencies between builds
-COPY requirements.txt requirements.txt
-RUN pip install -r requirements.txt
-
-# Mounts the application code to the image
-COPY . code
+ENV PYTHONUNBUFFERED=1
 WORKDIR /code
+COPY requirements.txt /code/
+RUN pip install -r requirements.txt
+COPY . /code/
+COPY ./entrypoint.sh /
+ENTRYPOINT ["sh", "/entrypoint.sh"]
 
-EXPOSE 8000
-
-# runs the production server
-ENTRYPOINT ["python", "mysite/manage.py"]
-CMD ["runserver", "10.10.0.10:8000"]
