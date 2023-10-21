@@ -22,7 +22,7 @@ Make sure you have downloaded these prerequisites before we start
 
      ```
      git clone https://github.com/jodeh/Dockerized-Django-Gunicorn-Postgres-Nginx.git
-     cd Dockerized-Django-Nginx-MYSQL
+     cd Dockerized-Django-Gunicorn-Postgres-Nginx
      ```
   2. Before we start to run the containers, we need to make a network to let the containers to connect with each other
 
