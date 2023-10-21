@@ -21,7 +21,7 @@ Make sure you have downloaded these prerequisites before we start
   1. Clone the repository to your local machine
 
      ```
-     git clone https://github.com/jodeh/Dockerized-Django-Nginx-MYSQL.git
+     git clone https://github.com/jodeh/Dockerized-Django-Gunicorn-Postgres-Nginx.git
      cd Dockerized-Django-Nginx-MYSQL
      ```
   2. Before we start to run the containers, we need to make a network to let the containers to connect with each other
@@ -56,7 +56,6 @@ Make sure you have downloaded these prerequisites before we start
        > CREATE DATABASE djangodb;
        > CREATE USER jodeh WITH ENCRYPTED PASSWORD 'password';
        > GRANT ALL PRIVILEGES ON DATABASE djangodb TO jodeh;
-       > FLUSH PRIVILEGES;
        ```
  7. Migrate tables to the new database
        ```
