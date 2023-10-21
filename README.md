@@ -76,7 +76,7 @@ Make sure you have downloaded these prerequisites before we start
 
   9. Finally Check The Connectivity
       
-      ![Django](https://github.com/jodeh/Dockerized-Django-Gunicorn-Postgres-Nginx/assets/80529706/a610ba37-1ff6-48f1-b057-405476c2d84c)
+   ![Django](https://github.com/jodeh/Dockerized-Django-Gunicorn-Postgres-Nginx/assets/80529706/cf90de2b-9d61-439a-b077-6a843e377d29)
 
 
 <hr>
