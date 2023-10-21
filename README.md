@@ -29,10 +29,10 @@ Make sure you have downloaded these prerequisites before we start
      ```
      docker network create --subnet 10.0.0.0/24 custom-network
      ```
-  3. Now lets run our mysql container :
+  3. Now lets run our postgresql container :
 
      ```
-     docker run -d --network custom-network --ip 10.0.0.15 --hostname mysql-database -e MYSQL_ROOT_PASSWORD=password -e MYSQL_DATABASE=djangodb mysql
+     docker run -d --network custom-network --ip 10.0.0.15 --hostname postgres-database -e POSTGRES_PASSWORD=password postgres
      ```
 
   4. Build the Django image and run the container
@@ -48,39 +48,50 @@ Make sure you have downloaded these prerequisites before we start
        docker run -d --network custom-network --ip 10.0.0.5 -p 80:80 --hostname nginx nginx-reverse-proxy  
         ```
      
-  6. Create user in mysql .
+  6. Create user in psql .
        ```
-       docker exec -it <mysql container id> bash
+       docker exec -it <postgres container id> bash
        
-       $ mysql -p
-       > CREATE USER 'jodeh'@'%' IDENTIFIED BY 'password';
-       > GRANT ALL PRIVILEGES ON *.* TO 'jodeh'@'%' WITH GRANT OPTION;
+       $ psql -U postgres --pasword
+       > CREATE DATABASE djangodb;
+       > CREATE USER jodeh WITH ENCRYPTED PASSWORD 'password';
+       > GRANT ALL PRIVILEGES ON DATABASE djangodb TO jodeh;
        > FLUSH PRIVILEGES;
        ```
  7. Migrate tables to the new database
        ```
        docker exec -it <django container id> bash
-       cd ~/mysite
        python3 manage.py migrate
        ```
-  7. Now go back to mysql container to check tables
+  7. Now go back to psql container to check tables
      ```
      docker exec -it <mysql container id> bash
      
-     $ mysql -p
-     > SHOW DATABASES;
-     > USE djangodb;
-     > SHOW TABLES;
+     $ psql -U postgres --password
+     > \dt;
      ```
      Tables must be shown like this.
    
-     ![djangodb](https://github.com/jodeh/Dockerized-Django-Nginx-MYSQL/assets/80529706/e7de7bf2-4c24-4a4a-858a-48264800cbfd)
+     ![postgres tables](https://github.com/jodeh/Dockerized-Django-Nginx-MYSQL/assets/80529706/82e97787-435c-40dd-95d8-8718cc1f57dc)
+
 
   9. Finally you can check the connectivity by going to the ip which we gave to the nginx which is 10.0.0.5 or the server name.
 
 <hr>
 
+### Compose file
+I've attache docker compose file (docker-compose.yml) in the root directory, all you need is to run these commands:
+```
+docker-compose build
+docker-compose up -d
+```
+When you to stop them
+```
+docker-compose down
+```
+<hr>
+
 ### Configuration
-  * We can configure django settings by editting ./django/mysite/settings.py file
+  * We can configure django settings by editting ./Django/djangodockertest/settings.py file
   * The proxy pass and the server name can be configured by editting ./etc/nginx/conf.d/default.conf file
 
