@@ -83,7 +83,7 @@ I've attache docker compose file (docker-compose.yml) in the root directory, all
 ```
 docker-compose up -d --build
 ```
-When you to stop them
+When you to stop the deployment
 ```
 docker-compose down
 ```
